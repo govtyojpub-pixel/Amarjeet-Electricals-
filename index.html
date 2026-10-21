@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#05080b">
+
+<title>Amarjeet Electricals | Dev Rocket E-Rickshaw</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap');
+
+:root{
+  --bg:#05080b;
+  --bg2:#0a0f14;
+  --card:#0d141b;
+  --gold:#f5b942;
+  --gold2:#ffd77b;
+  --orange:#ff7a00;
+  --white:#f7f7f5;
+  --muted:#929ba5;
+  --line:rgba(255,255,255,.10);
+  --green:#19c963;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Manrope',sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+/* NAVBAR */
+
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(4,7,10,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  max-width:1250px;
+  margin:auto;
+  padding:16px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family:'Montserrat';
+  font-weight:900;
+  font-size:19px;
+  letter-spacing:-.5px;
+}
+
+.logo small{
+  display:block;
+  margin-top:3px;
+  color:var(--gold);
+  font-size:8px;
+  letter-spacing:3px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  font-size:12px;
+}
+
+.nav-links a{
+  color:#d6d9dd;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.nav-call{
+  border:1px solid var(--gold);
+  padding:10px 17px;
+  border-radius:50px;
+  font-weight:800;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  padding:125px 5% 65px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 75% 45%,rgba(245,185,66,.15),transparent 32%),
+    radial-gradient(circle at 20% 80%,rgba(255,122,0,.07),transparent 30%),
+    linear-gradient(135deg,#05080b,#0a1016);
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:650px;
+  border-radius:50%;
+  border:1px solid rgba(245,185,66,.08);
+  right:-220px;
+  top:100px;
+}
+
+.hero-inner{
+  max-width:1250px;
+  width:100%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  align-items:center;
+  gap:40px;
+  position:relative;
+  z-index:2;
+}
+
+.kicker{
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-family:'Montserrat';
+  font-size:clamp(48px,6vw,82px);
+  line-height:.94;
+  letter-spacing:-3px;
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero-desc{
+  margin-top:23px;
+  color:#aab1b8;
+  max-width:520px;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.tagline{
+  display:flex;
+  gap:13px;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+
+.tagline span{
+  padding-right:13px;
+  border-right:1px solid #3a424a;
+  font-size:12px;
+  font-weight:700;
+}
+
+.tagline span:last-child{
+  border:none;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  min-height:50px;
+  padding:0 23px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:800;
+  transition:.3s;
+}
+
+.btn-gold{
+  background:linear-gradient(135deg,#e8a928,#ffd56d);
+  color:#080a0c;
+  box-shadow:0 10px 35px rgba(245,185,66,.18);
+}
+
+.btn-outline{
+  border:1px solid #3d4750;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.hero-car{
+  position:relative;
+}
+
+.hero-car img{
+  width:100%;
+  max-height:600px;
+  object-fit:contain;
+  filter:drop-shadow(0 30px 35px rgba(0,0,0,.65));
+}
+
+.hero-car:after{
+  content:"";
+  position:absolute;
+  left:15%;
+  bottom:2%;
+  width:70%;
+  height:40px;
+  background:#000;
+  border-radius:50%;
+  filter:blur(22px);
+  z-index:-1;
+}
+
+/* QUICK INFO */
+
+.quick{
+  background:#080d12;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.quick-inner{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.quick-box{
+  padding:25px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  border-right:1px solid var(--line);
+}
+
+.quick-box:last-child{
+  border-right:none;
+}
+
+.quick-icon{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-size:19px;
+}
+
+.quick-box strong{
+  display:block;
+  font-size:13px;
+}
+
+.quick-box small{
+  color:var(--muted);
+  font-size:10px;
+}
+
+/* COMMON */
+
+section{
+  padding:95px 5%;
+}
+
+.container{
+  max-width:1250px;
+  margin:auto;
+}
+
+.section-label{
+  color:var(--gold);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:3px;
+  margin-bottom:10px;
+}
+
+.section-title{
+  font-family:'Montserrat';
+  font-size:clamp(33px,4vw,53px);
+  letter-spacing:-2px;
+  line-height:1.05;
+}
+
+.section-title span{
+  color:var(--gold);
+}
+
+.section-desc{
+  color:var(--muted);
+  max-width:650px;
+  margin-top:13px;
+  line-height:1.7;
+}
+
+/* MODELS */
+
+.models{
+  background:
+    radial-gradient(circle at 50% 30%,rgba(245,185,66,.06),transparent 30%),
+    #070b0f;
+}
+
+.models-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-top:45px;
+}
+
+.model{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
+  border:1px solid #29333d;
+  border-radius:20px;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.model:hover{
+  transform:translateY(-7px);
+  border-color:rgba(245,185,66,.6);
+}
+
+.model-image{
+  height:370px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at center,rgba(245,185,66,.11),transparent 48%),
+    #080d12;
+}
+
+.model-image img{
+  width:90%;
+  height:90%;
+  object-fit:contain;
+}
+
+.badge{
+  position:absolute;
+  top:20px;
+  left:20px;
+  background:rgba(5,8,11,.88);
+  border:1px solid rgba(245,185,66,.4);
+  color:var(--gold2);
+  padding:8px 14px;
+  border-radius:50px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.model-content{
+  padding:28px;
+}
+
+.model-top{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+}
+
+.model h3{
+  font-family:'Montserrat';
+  font-size:24px;
+}
+
+.width{
+  font-family:'Montserrat';
+  color:var(--gold);
+  font-size:27px;
+  font-weight:900;
+}
+
+.width small{
+  display:block;
+  text-align:right;
+  font-family:'Manrope';
+  color:#7e8993;
+  font-size:9px;
+}
+
+.features{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.feature{
+  color:#c9ced3;
+  font-size:12px;
+}
+
+.feature:before{
+  content:"✓";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:20px;
+  height:20px;
+  margin-right:8px;
+  background:var(--gold);
+  color:#111;
+  border-radius:50%;
+  font-weight:900;
+}
+
+/* NOTE */
+
+.width-note{
+  margin-top:25px;
+  padding:17px 20px;
+  border:1px solid rgba(245,185,66,.18);
+  background:rgba(245,185,66,.04);
+  border-radius:12px;
+  color:#8f99a3;
+  font-size:11px;
+  line-height:1.7;
+}
+
+/* WHY */
+
+.why{
+  background:#0a0f14;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.why-list{
+  margin-top:30px;
+}
+
+.why-item{
+  display:flex;
+  gap:15px;
+  padding:17px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.why-number{
+  color:var(--gold);
+  font-family:'Montserrat';
+  font-weight:900;
+}
+
+.why-item h4{
+  font-size:14px;
+  margin-bottom:3px;
+}
+
+.why-item p{
+  color:#7f8993;
+  font-size:11px;
+}
+
+.premium-panel{
+  min-height:470px;
+  border:1px solid #27313a;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 40%,rgba(245,185,66,.13),transparent 38%),
+    linear-gradient(145deg,#111820,#080c10);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:45px;
+}
+
+.premium-panel .big{
+  font-family:'Montserrat';
+  font-size:52px;
+  color:var(--gold);
+  line-height:1;
+}
+
+.premium-panel h3{
+  font-family:'Montserrat';
+  font-size:29px;
+  margin:15px 0;
+}
+
+.premium-panel p{
+  color:#8c969f;
+  line-height:1.8;
+}
+
+/* OWNER */
+
+.owner{
+  background:#f2f1ed;
+  color:#101317;
+}
+
+.owner-grid{
+  display:grid;
+  grid-template-columns:360px 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.owner-photo{
+  position:relative;
+  max-width:330px;
+  margin:auto;
+}
+
+.owner-photo:before{
+  content:"";
+  position:absolute;
+  left:-10px;
+  bottom:-10px;
+  width:100%;
+  height:100%;
+  border-radius:22px;
+  background:#e3a82e;
+}
+
+.owner-photo img{
+  position:relative;
+  width:100%;
+  height:390px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:22px;
+}
+
+.owner .section-title{
+  color:#101317;
+}
+
+.owner-text{
+  color:#616970;
+  line-height:1.9;
+  margin-top:20px;
+  max-width:650px;
+}
+
+.owner-name{
+  margin-top:27px;
+  border-top:1px solid #d4d4d0;
+  padding-top:20px;
+}
+
+.owner-name h3{
+  font-family:'Montserrat';
+  font-size:23px;
+}
+
+.owner-name span{
+  color:#b77a00;
+  font-size:11px;
+  font-weight:800;
+}
+
+/* CONTACT */
+
+.contact{
+  background:
+    radial-gradient(circle at 85% 30%,rgba(245,185,66,.1),transparent 28%),
+    #06090d;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+}
+
+.contact-details{
+  margin-top:30px;
+}
+
+.contact-row{
+  padding:17px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.contact-row small{
+  color:var(--gold);
+  display:block;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:2px;
+  margin-bottom:5px;
+}
+
+.contact-row span{
+  font-size:14px;
+}
+
+.contact-card{
+  background:#0d141a;
+  border:1px solid #29323a;
+  border-radius:20px;
+  padding:35px;
+}
+
+.contact-card h3{
+  font-family:'Montserrat';
+  font-size:24px;
+  margin-bottom:20px;
+}
+
+.contact-card input,
+.contact-card textarea{
+  width:100%;
+  padding:15px 4px;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid #35404a;
+  color:white;
+  outline:none;
+  font-family:inherit;
+  margin-bottom:10px;
+}
+
+.contact-card textarea{
+  min-height:100px;
+  resize:none;
+}
+
+.contact-card button{
+  width:100%;
+  border:none;
+  cursor:pointer;
+  margin-top:18px;
+}
+
+/* FOOTER */
+
+footer{
+  padding:38px 5% 100px;
+  border-top:1px solid var(--line);
+  background:#030507;
+}
+
+.footer{
+  max-width:1250px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.footer strong{
+  font-family:'Montserrat';
+}
+
+.footer p{
+  color:#68727b;
+  font-size:10px;
+}
+
+/* MOBILE BAR */
+
+.mobile-bar{
+  display:none;
+}
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:.7s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  body{
+    padding-bottom:70px;
+  }
+
+  .nav-inner{
+    padding:14px 5%;
+  }
+
+  .logo{
+    font-size:15px;
+  }
+
+  .nav-links a:not(.nav-call){
+    display:none;
+  }
+
+  .nav-call{
+    font-size:10px;
+    padding:9px 13px;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:115px 5% 60px;
+  }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:49px;
+  }
+
+  .hero-car{
+    margin-top:20px;
+  }
+
+  .quick-inner{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .quick-box{
+    padding:17px 12px;
+  }
+
+  section{
+    padding:75px 5%;
+  }
+
+  .models-grid,
+  .why-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .model-image{
+    height:300px;
+  }
+
+  .model-top{
+    align-items:flex-start;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .owner-grid{
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+
+  .owner-photo{
+    width:250px;
+  }
+
+  .owner-photo img{
+    height:300px;
+  }
+
+  .premium-panel{
+    min-height:350px;
+    padding:30px;
+  }
+
+  .footer{
+    display:block;
+  }
+
+  .footer p{
+    margin-top:10px;
+  }
+
+  .mobile-bar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:67px;
+    z-index:2000;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    background:#080c10;
+    border-top:1px solid #303840;
+    box-shadow:0 -8px 30px rgba(0,0,0,.45);
+  }
+
+  .mobile-bar a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:11px;
+    font-weight:800;
+    border-right:1px solid #2b333b;
+  }
+
+  .mobile-bar a:nth-child(2){
+    background:var(--green);
+  }
+
+  .mobile-bar a:nth-child(3){
+    color:var(--gold2);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<header class="nav">
+  <div class="nav-inner">
+
+    <div class="logo">
+      AMARJEET ELECTRICALS
+      <small>E-RICKSHAW CENTRE</small>
+    </div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#models">E-Rickshaws</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+
+      <a class="nav-call" href="tel:+919793238729">
+        ☎ +91 97932 38729
+      </a>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-inner">
+
+    <div>
+
+      <div class="kicker">
+        DEV ROCKET • E-RICKSHAW
+      </div>
+
+      <h1>
+        BUILT FOR<br>
+        <span>BETTER</span><br>
+        BUSINESS.
+      </h1>
+
+      <p class="hero-desc">
+        Discover Dev Rocket E-Rickshaws at Amarjeet Electricals.
+        Built for dependable everyday operation with sales,
+        service and after-sales support at one place.
+      </p>
+
+      <div class="tagline">
+        <span>POWERFUL</span>
+        <span>DURABLE</span>
+        <span>DEPENDABLE</span>
+      </div>
+
+      <div class="hero-buttons">
+
+        <a href="#models" class="btn btn-gold">
+          EXPLORE MODELS →
+        </a>
+
+        <a href="https://wa.me/919793238729"
+           target="_blank"
+           class="btn btn-outline">
+          WHATSAPP US
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-car">
+      <img src="rickshaw.jpg"
+           alt="Dev Rocket E-Rickshaw">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- QUICK INFO -->
+
+<div class="quick">
+
+  <div class="quick-inner">
+
+    <div class="quick-box">
+      <div class="quick-icon">⚡</div>
+      <div>
+        <strong>Electric Mobility</strong>
+        <small>For everyday business</small>
+      </div>
+    </div>
+
+    <div class="quick-box">
+      <div class="quick-icon">◆</div>
+      <div>
+        <strong>Dev Rocket</strong>
+        <small>E-Rickshaw range</small>
+      </div>
+    </div>
+
+    <div class="quick-box">
+      <div class="quick-icon">☎</div>
+      <div>
+        <strong>97932 38729</strong>
+        <small>Call / WhatsApp</small>
+      </div>
+    </div>
+
+    <div class="quick-box">
+      <div class="quick-icon">⌖</div>
+      <div>
+        <strong>Palia Kalan</strong>
+        <small>Visit our showroom</small>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- MODELS -->
+
+<section class="models" id="models">
+
+<div class="container">
+
+  <div class="reveal">
+
+    <div class="section-label">
+      OUR E-RICKSHAW RANGE
+    </div>
+
+    <h2 class="section-title">
+      Choose Your <span>Perfect Ride.</span>
+    </h2>
+
+    <p class="section-desc">
+      Two body options and two width configurations for different
+      requirements — with the trusted Dev Rocket identity.
+    </p>
+
+  </div>
+
+
+  <div class="models-grid">
+
+
+    <!-- STEEL -->
+
+    <article class="model reveal">
+
+      <div class="model-image">
+
+        <div class="badge">
+          DEV ROCKET • STEEL BODY
+        </div>
+
+        <img src="rickshaw.jpg"
+             alt="Dev Rocket Steel Body E-Rickshaw">
+
+      </div>
+
+      <div class="model-content">
+
+        <div class="model-top">
+
+          <div>
+            <h3>Steel Body</h3>
+            <p style="color:#7e8993;font-size:11px;margin-top:5px;">
+              Premium body configuration
+            </p>
+          </div>
+
+          <div class="width">
+            42″
+            <small>Approx. 106.7 cm</small>
+          </div>
+
+        </div>
+
+        <div class="features">
+          <div class="feature">Steel Body</div>
+          <div class="feature">42″ Width</div>
+          <div class="feature">Strong Construction</div>
+          <div class="feature">Service Support</div>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- IRON -->
+
+    <article class="model reveal">
+
+      <div class="model-image">
+
+        <div class="badge">
+          DEV ROCKET • IRON BODY
+        </div>
+
+        <img src="rickshaw.jpg"
+             alt="Dev Rocket Iron Body E-Rickshaw">
+
+      </div>
+
+      <div class="model-content">
+
+        <div class="model-top">
+
+          <div>
+            <h3>Iron Body</h3>
+            <p style="color:#7e8993;font-size:11px;margin-top:5px;">
+              Heavy-duty body configuration
+            </p>
+          </div>
+
+          <div class="width">
+            46″
+            <small>Approx. 116.8 cm</small>
+          </div>
+
+        </div>
+
+        <div class="features">
+          <div class="feature">Iron Body</div>
+          <div class="feature">46″ Width</div>
+          <div class="feature">Heavy-Duty Build</div>
+          <div class="feature">Service Support</div>
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <div class="width-note reveal">
+    <strong style="color:#ddd;">Note:</strong>
+    Vehicle specifications, body options and availability may vary.
+    Please contact Amarjeet Electricals for the exact model,
+    dimensions, specifications and current availability before purchase.
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- WHY -->
+
+<section class="why">
+
+<div class="container why-grid">
+
+  <div class="reveal">
+
+    <div class="section-label">
+      AMARJEET ELECTRICALS
+    </div>
+
+    <h2 class="section-title">
+      More Than Just<br>
+      <span>A Vehicle.</span>
+    </h2>
+
+    <p class="section-desc">
+      From your first enquiry to servicing your E-Rickshaw,
+      get essential assistance at one place.
+    </p>
+
+
+    <div class="why-list">
+
+      <div class="why-item">
+        <div class="why-number">01</div>
+        <div>
+          <h4>Dev Rocket E-Rickshaw</h4>
+          <p>Explore available Dev Rocket vehicle options.</p>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="why-number">02</div>
+        <div>
+          <h4>Sales Assistance</h4>
+          <p>Get information about available vehicles and options.</p>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="why-number">03</div>
+        <div>
+          <h4>Repair & Maintenance</h4>
+          <p>Support for regular service and repair requirements.</p>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="why-number">04</div>
+        <div>
+          <h4>After-Sales Support</h4>
+          <p>Contact us when your E-Rickshaw needs assistance.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="premium-panel reveal">
+
+    <div class="big">
+      DEV
+    </div>
+
+    <h3>
+      ROCKET E-RICKSHAW
+    </h3>
+
+    <p>
+      Designed for electric mobility and commercial use.
+      Visit Amarjeet Electricals to see the available vehicle
+      and discuss the right configuration for your requirements.
+    </p>
+
+    <div style="margin-top:30px;">
+
+      <a href="tel:+919793238729"
+         class="btn btn-gold">
+         CALL NOW →
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- OWNER -->
+
+<section class="owner" id="about">
+
+<div class="container owner-grid">
+
+  <div class="owner-photo reveal">
+    <img src="owner.jpg"
+         alt="Gurpinder Singh">
+  </div>
+
+
+  <div class="reveal">
+
+    <div class="section-label">
+      ABOUT OWNER
+    </div>
+
+    <h2 class="section-title">
+      Service Built On<br>
+      <span>Trust.</span>
+    </h2>
+
+    <p class="owner-text">
+      At Amarjeet Electricals – E-Rickshaw Centre, our focus is
+      to provide customers with straightforward assistance for
+      E-Rickshaw sales, service and repair.
+    </p>
+
+    <p class="owner-text">
+      हमारा लक्ष्य है कि हर ग्राहक को बेहतर सेवा और भरोसेमंद
+      सहायता मिले।
+    </p>
+
+    <div class="owner-name">
+
+      <h3>Gurpinder Singh</h3>
+
+      <span>
+        AMARJEET ELECTRICALS • E-RICKSHAW CENTRE
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container contact-grid">
+
+  <div class="reveal">
+
+    <div class="section-label">
+      VISIT OUR SHOWROOM
+    </div>
+
+    <h2 class="section-title">
+      Ready To Go<br>
+      <span>Electric?</span>
+    </h2>
+
+    <p class="section-desc">
+      Contact us for Dev Rocket E-Rickshaw enquiries,
+      service and repair support.
+    </p>
+
+
+    <div class="contact-details">
+
+      <div class="contact-row">
+        <small>SHOWROOM</small>
+        <span>
+          Amarjeet Electricals – E-Rickshaw Centre
+        </span>
+      </div>
+
+      <div class="contact-row">
+        <small>ADDRESS</small>
+        <span>
+          Sampurna Nagar Road, Palia Kalan,
+          Near Montessori School
+        </span>
+      </div>
+
+      <div class="contact-row">
+        <small>PHONE / WHATSAPP</small>
+        <span>
+          +91 97932 38729
+        </span>
+      </div>
+
+      <div class="contact-row">
+        <small>BUSINESS HOURS</small>
+        <span>
+          9:00 AM – 7:00 PM
+        </span>
+      </div>
+
+    </div>
+
+
+    <div style="margin-top:27px;">
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Sampurna+Nagar+Road+Palia+Kalan+Near+Montessori+School"
+        target="_blank"
+        class="btn btn-outline">
+
+        GET DIRECTIONS →
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- FORM -->
+
+  <div class="contact-card reveal">
+
+    <div class="section-label">
+      QUICK ENQUIRY
+    </div>
+
+    <h3>
+      Talk To Our Team
+    </h3>
+
+    <input
+      id="name"
+      type="text"
+      placeholder="Your Name">
+
+    <input
+      id="phone"
+      type="tel"
+      placeholder="Mobile Number">
+
+    <textarea
+      id="message"
+      placeholder="I want to know about Dev Rocket E-Rickshaw..."></textarea>
+
+    <button
+      onclick="sendWhatsApp()"
+      class="btn btn-gold">
+
+      SEND ON WHATSAPP →
+
+    </button>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer">
+
+    <div>
+      <strong>
+        AMARJEET ELECTRICALS
+      </strong>
+
+      <p style="margin-top:5px;">
+        E-Rickshaw Centre • Palia Kalan
+      </p>
+    </div>
+
+    <p>
+      © 2026 Amarjeet Electricals.<br>
+      All Rights Reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<!-- MOBILE ACTION BAR -->
+
+<div class="mobile-bar">
+
+  <a href="tel:+919793238729">
+    ☎ CALL
+  </a>
+
+  <a
+    href="https://wa.me/919793238729"
+    target="_blank">
+    WHATSAPP
+  </a>
+
+  <a
+    href="https://www.google.com/maps/search/?api=1&query=Sampurna+Nagar+Road+Palia+Kalan+Near+Montessori+School"
+    target="_blank">
+    DIRECTIONS
+  </a>
+
+</div>
+
+
+<script>
+
+/* WHATSAPP ENQUIRY */
+
+function sendWhatsApp(){
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const phone =
+    document.getElementById("phone").value.trim();
+
+  const message =
+    document.getElementById("message").value.trim();
+
+  const text =
+`Hello Amarjeet Electricals,
+
+Name: ${name}
+Mobile: ${phone}
+
+Enquiry: ${message}
+
+I am interested in Dev Rocket E-Rickshaw.`;
+
+  window.open(
+    "https://wa.me/919793238729?text=" +
+    encodeURIComponent(text),
+    "_blank"
+  );
+
+}
+
+
+/* SCROLL REVEAL */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+const observer =
+  new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+      }
+
+    });
+
+  },{
+    threshold:.12
+  });
+
+revealElements.forEach(el=>{
+  observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
